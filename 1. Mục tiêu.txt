@@ -1,0 +1,58 @@
+1. Mục tiêu
+Sinh viên xây dựng một hệ thống chat ngang hàng (P2P) cho phép nhiều người dùng trao đổi tin nhắn trực tiếp qua mạng mà không phụ thuộc hoàn toàn vào server trung tâm.
+Đồ án nhằm giúp sinh viên áp dụng các kiến thức về:
+•	mô hình peer-to-peer trong hệ thống phân tán
+•	truyền thông giữa các tiến trình qua mạng
+•	khám phá peer (peer discovery)
+•	đồng bộ và quản lý trạng thái phân tán
+•	xử lý lỗi và tính chịu lỗi cơ bản
+2. Mô tả hệ thống
+Hệ thống chat gồm nhiều peer. Mỗi peer vừa đóng vai trò client vừa là server để:
+•	gửi tin nhắn
+•	nhận tin nhắn
+•	chuyển tiếp tin nhắn cho các peer khác
+Một bootstrap server hoặc tracker đơn giản có thể được dùng để giúp peer tìm và kết nối với nhau khi tham gia mạng.
+3. Yêu cầu chức năng
+Hệ thống cần hỗ trợ các chức năng cơ bản sau:
+3.1. Tham gia mạng P2P
+•	Peer có thể đăng ký với bootstrap server hoặc một peer đã biết để tham gia mạng.
+•	Hệ thống cung cấp danh sách các peer đang online.
+3.2. Chat trực tiếp giữa các peer
+•	Người dùng có thể gửi tin nhắn trực tiếp tới một peer khác.
+•	Tin nhắn được truyền trực tiếp giữa các peer qua mạng.
+3.3. Chat nhóm
+•	Hỗ trợ chat với nhiều peer trong một nhóm.
+•	Tin nhắn phải được phát tới tất cả các peer trong nhóm.
+3.4. Peer discovery
+•	Peer mới tham gia phải có khả năng tìm các peer khác trong mạng.
+3.5. Trạng thái online/offline
+•	Hiển thị danh sách các peer đang online.
+•	Cập nhật trạng thái khi peer tham gia hoặc rời mạng.
+3.6. Truyền tin đáng tin cậy
+•	Tin nhắn phải được truyền thành công tới peer đích.
+•	Có cơ chế xử lý khi peer không phản hồi hoặc mất kết nối.
+4. Yêu cầu kỹ thuật
+Hệ thống phải thể hiện rõ các đặc điểm của hệ thống phân tán:
+•	giao tiếp mạng bằng TCP socket hoặc giao thức tương đương
+•	mỗi peer có thể gửi và nhận tin đồng thời
+•	xử lý nhiều kết nối cùng lúc
+•	quản lý danh sách peer đang kết nối
+Hệ thống cần có các thành phần chính:
+•	Peer node: gửi và nhận tin nhắn
+•	Bootstrap/Tracker server (đơn giản): hỗ trợ khám phá peer
+5. Chức năng nâng cao (khuyến khích)
+Nhóm có thể cộng điểm nếu triển khai thêm:
+•	broadcast message trong toàn mạng
+•	store-and-forward messaging khi peer offline
+•	mã hóa tin nhắn (encryption)
+•	giao diện GUI hoặc web interface
+•	file transfer giữa các peer
+•	mô phỏng churn (peer tham gia và rời mạng liên tục)
+6. Sản phẩm cần nộp
+Mỗi nhóm cần nộp:
+1.	Mã nguồn chương trình và hướng dẫn chạy.
+2.	Báo cáo đồ án gồm:
+o	kiến trúc hệ thống
+o	giao thức trao đổi thông điệp
+o	cơ chế peer discovery
+o	xử lý lỗi và thử nghiệm hệ thống.
